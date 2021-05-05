@@ -33,7 +33,7 @@ jobs:
       run: dotnet publish src\BlazorPersonalWebsite.RestApi -c Release -o ${{env.DOTNET_ROOT}}/myapp
       
     - name: Update database
-      run: dotnet ef database update
+      run: dotnet ef database --project src\BlazorPersonalWebsite.EntityFramework\ update
 
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v2
