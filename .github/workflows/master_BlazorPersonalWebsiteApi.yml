@@ -20,12 +20,20 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: '5.0.x'
+        
+    - name: Install EntityFramework
+      run: |
+        dotnet tool install --global dotnet-ef
+        dotnet tool restore
 
     - name: Build with dotnet
       run: dotnet build --configuration Release
 
     - name: dotnet publish
-      run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+      run: dotnet publish src\BlazorPersonalWebsite.RestApi -c Release -o ${{env.DOTNET_ROOT}}/myapp
+      
+    - name: Update database
+      run: dotnet ef database --project src\BlazorPersonalWebsite.EntityFramework\ update
 
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v2
