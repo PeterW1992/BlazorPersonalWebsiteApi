@@ -71,6 +71,8 @@ namespace BlazorPersonalWebsite.RestApi
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "BlazorPersonalWebsite.RestApi v1"));
             }
 
+            app.ApplicationServices.GetRequiredService<DbContext>().Database.Migrate();
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
