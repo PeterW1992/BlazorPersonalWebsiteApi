@@ -35,6 +35,9 @@ namespace BlazorPersonalWebsite.EntityFramework
 
             modelBuilder.Entity<SoftwareProject>()
                 .HasKey(k => k.Id);
+            
+            modelBuilder.Entity<SoftwareProject>()
+                .HasAlternateKey(k => k.ProjectRef);
 
             modelBuilder.Entity<SoftwareProject>()
                 .Property(p => p.Id)
@@ -45,6 +48,9 @@ namespace BlazorPersonalWebsite.EntityFramework
 
             modelBuilder.Entity<WoodworkProject>()
                 .HasKey(k => k.Id);
+
+            modelBuilder.Entity<WoodworkProject>()
+                .HasAlternateKey(k => k.ProjectRef);
 
             modelBuilder.Entity<WoodworkProject>()
                 .Property(p => p.Id)
@@ -81,6 +87,7 @@ namespace BlazorPersonalWebsite.EntityFramework
                     new WoodworkProjectImage
                     {
                         WoodworkProjectImageId = 1,
+                        ImageRef = "unhungGate",
                         Description = "Unhung gate",
                         ImageUrl = "images\\woodwork-images\\side-gate\\sidegate-unhung.jpg",
                         WoodworkProjectId = 1
@@ -89,13 +96,15 @@ namespace BlazorPersonalWebsite.EntityFramework
                     {
                         WoodworkProjectImageId = 2,
                         Description = "Unfinished workbench",
+                        ImageRef = "unfinishedWorkbench",
                         ImageUrl = "images\\woodwork-images\\workbench\\workbench-unfinished.jpg",
                         WoodworkProjectId = 2
                     },
                     new WoodworkProjectImage
                     {
                         WoodworkProjectImageId = 3,
-                        Description = "Unfinished workbench",
+                        Description = "Bird Table",
+                        ImageRef = "birdTable",
                         ImageUrl = "images\\woodwork-images\\bird-table\\bird-table.jpg",
                         WoodworkProjectId = 3
                     },
@@ -103,6 +112,7 @@ namespace BlazorPersonalWebsite.EntityFramework
                     {
                         WoodworkProjectImageId = 4,
                         Description = "All raised garden beds",
+                        ImageRef = "allRaisedBed",
                         ImageUrl = "images\\woodwork-images\\raised-garden-bed\\all-in-view.jpg",
                         WoodworkProjectId = 4
                     },
@@ -110,6 +120,7 @@ namespace BlazorPersonalWebsite.EntityFramework
                     {
                         WoodworkProjectImageId = 5,
                         Description = "All raised garden beds",
+                        ImageRef = "allRaisedBed2",
                         ImageUrl = "images\\woodwork-images\\raised-garden-bed\\all-in-view.jpg",
                         WoodworkProjectId = 5
                     }
@@ -163,6 +174,7 @@ namespace BlazorPersonalWebsite.EntityFramework
                     new SoftwareProjectImage
                     {
                         SoftwareProjectImageId = 1,
+                        ImageRef = "rs1",
                         ImageUrl = "images\\software-images\\rs-calculator\\1.png",
                         Description = "Agility skill calculator",
                         SoftwareProjectId = 1
@@ -170,6 +182,7 @@ namespace BlazorPersonalWebsite.EntityFramework
                     new SoftwareProjectImage
                     {
                         SoftwareProjectImageId = 2,
+                        ImageRef = "rs2",
                         ImageUrl = "images\\software-images\\rs-calculator\\2.png",
                         Description = "Fishing skill calculator",
                         SoftwareProjectId = 1
@@ -177,6 +190,7 @@ namespace BlazorPersonalWebsite.EntityFramework
                     new SoftwareProjectImage
                     {
                         SoftwareProjectImageId = 3,
+                        ImageRef = "rs3",
                         ImageUrl = "images\\software-images\\rs-calculator\\3.png",
                         Description = "Dropdown showing which skills are included",
                         SoftwareProjectId = 1
@@ -184,6 +198,7 @@ namespace BlazorPersonalWebsite.EntityFramework
                     new SoftwareProjectImage
                     {
                         SoftwareProjectImageId = 4,
+                        ImageRef = "rs4",
                         ImageUrl = "images\\software-images\\rs-calculator\\4.png",
                         Description = "Dropdown showing skill subcategories",
                         SoftwareProjectId = 1
@@ -191,6 +206,7 @@ namespace BlazorPersonalWebsite.EntityFramework
                     new SoftwareProjectImage
                     {
                         SoftwareProjectImageId = 5,
+                        ImageRef = "ecom1",
                         ImageUrl = "images\\software-images\\ecommerce-site\\1.png",
                         Description = "Ecommerce homepage",
                         SoftwareProjectId = 2
@@ -198,6 +214,7 @@ namespace BlazorPersonalWebsite.EntityFramework
                     new SoftwareProjectImage
                     {
                         SoftwareProjectImageId = 6,
+                        ImageRef = "ecom2",
                         ImageUrl = "images\\software-images\\ecommerce-site\\2.png",
                         Description = "Ecommerce product page",
                         SoftwareProjectId = 2
@@ -205,6 +222,7 @@ namespace BlazorPersonalWebsite.EntityFramework
                     new SoftwareProjectImage
                     {
                         SoftwareProjectImageId = 7,
+                        ImageRef = "ecom3",
                         ImageUrl = "images\\software-images\\ecommerce-site\\3.png",
                         Description = "Ecommerce basket page",
                         SoftwareProjectId = 2
@@ -212,6 +230,7 @@ namespace BlazorPersonalWebsite.EntityFramework
                     new SoftwareProjectImage
                     {
                         SoftwareProjectImageId = 8,
+                        ImageRef = "ecom4",
                         ImageUrl = "images\\software-images\\ecommerce-site\\4.png",
                         Description = "Ecommerce admin page",
                         SoftwareProjectId = 2
@@ -219,6 +238,7 @@ namespace BlazorPersonalWebsite.EntityFramework
                     new SoftwareProjectImage
                     {
                         SoftwareProjectImageId = 9,
+                        ImageRef = "ecom5",
                         ImageUrl = "images\\software-images\\ecommerce-site\\5.png",
                         Description = "Ecommerce admin page - Edit listing",
                         SoftwareProjectId = 2
@@ -226,6 +246,7 @@ namespace BlazorPersonalWebsite.EntityFramework
                     new SoftwareProjectImage
                     {
                         SoftwareProjectImageId = 10,
+                        ImageRef = "ecom6",
                         ImageUrl = "images\\software-images\\ecommerce-site\\6.png",
                         Description = "Ecommerce contact us page",
                         SoftwareProjectId = 2
@@ -233,6 +254,7 @@ namespace BlazorPersonalWebsite.EntityFramework
                      new SoftwareProjectImage
                      {
                          SoftwareProjectImageId = 11,
+                         ImageRef = "loyalty1",
                          ImageUrl = "images\\software-images\\loyalty-pro-app\\1.png",
                          Description = "Main menu",
                          SoftwareProjectId = 3
@@ -240,6 +262,7 @@ namespace BlazorPersonalWebsite.EntityFramework
                     new SoftwareProjectImage
                     {
                         SoftwareProjectImageId = 12,
+                        ImageRef = "loyalty2",
                         ImageUrl = "images\\software-images\\loyalty-pro-app\\2.png",
                         Description = "Balance overview page",
                         SoftwareProjectId = 3
@@ -247,6 +270,7 @@ namespace BlazorPersonalWebsite.EntityFramework
                     new SoftwareProjectImage
                     {
                         SoftwareProjectImageId = 13,
+                        ImageRef = "loyalty3",
                         ImageUrl = "images\\software-images\\loyalty-pro-app\\3.png",
                         Description = "Personal details page",
                         SoftwareProjectId = 3
@@ -254,6 +278,7 @@ namespace BlazorPersonalWebsite.EntityFramework
                     new SoftwareProjectImage
                     {
                         SoftwareProjectImageId = 14,
+                        ImageRef = "loyalty4",
                         ImageUrl = "images\\software-images\\loyalty-pro-app\\4.png",
                         Description = "Vouchers overview page",
                         SoftwareProjectId = 3
@@ -261,6 +286,7 @@ namespace BlazorPersonalWebsite.EntityFramework
                     new SoftwareProjectImage
                     {
                         SoftwareProjectImageId = 15,
+                        ImageRef = "loyalty5",
                         ImageUrl = "images\\software-images\\loyalty-pro-app\\5.png",
                         Description = "Initial unlogged in page",
                         SoftwareProjectId = 3
@@ -268,6 +294,7 @@ namespace BlazorPersonalWebsite.EntityFramework
                     new SoftwareProjectImage
                     {
                         SoftwareProjectImageId = 16,
+                        ImageRef = "loyalty6",
                         ImageUrl = "images\\software-images\\loyalty-pro-app\\6.png",
                         Description = "Manual log in page",
                         SoftwareProjectId = 3
@@ -275,6 +302,7 @@ namespace BlazorPersonalWebsite.EntityFramework
                     new SoftwareProjectImage
                     {
                         SoftwareProjectImageId = 17,
+                        ImageRef = "gps1",
                         ImageUrl = "images\\software-images\\gps-logger\\1.png",
                         Description = "Display showing journeys between two staypoints",
                         SoftwareProjectId = 4
@@ -282,6 +310,7 @@ namespace BlazorPersonalWebsite.EntityFramework
                     new SoftwareProjectImage
                     {
                         SoftwareProjectImageId = 18,
+                        ImageRef = "gps2",
                         ImageUrl = "images\\software-images\\gps-logger\\2.png",
                         Description = "Individual journey view",
                         SoftwareProjectId = 4
@@ -289,6 +318,7 @@ namespace BlazorPersonalWebsite.EntityFramework
                     new SoftwareProjectImage
                     {
                         SoftwareProjectImageId = 19,
+                        ImageRef = "gps3",
                         ImageUrl = "images\\software-images\\gps-logger\\3.png",
                         Description = "Staypoint overview showing individual visits",
                         SoftwareProjectId = 4
@@ -296,6 +326,7 @@ namespace BlazorPersonalWebsite.EntityFramework
                     new SoftwareProjectImage
                     {
                         SoftwareProjectImageId = 20,
+                        ImageRef = "gps4",
                         ImageUrl = "images\\software-images\\gps-logger\\4.png",
                         Description = "Staypoint shown on map",
                         SoftwareProjectId = 4
@@ -303,6 +334,7 @@ namespace BlazorPersonalWebsite.EntityFramework
                     new SoftwareProjectImage
                     {
                         SoftwareProjectImageId = 21,
+                        ImageRef = "gps5",
                         ImageUrl = "images\\software-images\\gps-logger\\5.png",
                         Description = "Open side bar",
                         SoftwareProjectId = 4

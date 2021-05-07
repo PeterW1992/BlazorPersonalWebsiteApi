@@ -9,11 +9,14 @@ using CoreModel = BlazorPersonalWebsite.Models;
 namespace BlazorPersonalWebsite.RestApi.Mappings
 {
     public class SoftwareProjectProfile : Profile
-	{
-		public SoftwareProjectProfile()
-		{
-			CreateMap<CoreModel.SoftwareProject, RestApiModel.SoftwareProject>();
-			CreateMap<CoreModel.SoftwareProjectImage, RestApiModel.SoftwareProjectImage>();
-		}
-	}
+    {
+        public SoftwareProjectProfile()
+        {
+            CreateMap<CoreModel.SoftwareProject, RestApiModel.SoftwareProject>();
+            CreateMap<CoreModel.SoftwareProjectImage, RestApiModel.SoftwareProjectImage>();
+
+            CreateMap<CoreModel.SoftwareProject, CoreModel.SoftwareProjectUpdateModel>();
+            CreateMap<CoreModel.SoftwareProjectImage, CoreModel.SoftwareProjectImageUpdateModel>();
+        }
+    }
 }

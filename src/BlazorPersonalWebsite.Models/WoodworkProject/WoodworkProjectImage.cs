@@ -6,9 +6,11 @@ namespace BlazorPersonalWebsite.Models
 {
     public class WoodworkProjectImage
     {
-
         public int WoodworkProjectImageId { get; set; }
+
         public string ImageUrl { get; set; }
+
+        public string ImageRef { get; set; }
 
         public string Description { get; set; }
 

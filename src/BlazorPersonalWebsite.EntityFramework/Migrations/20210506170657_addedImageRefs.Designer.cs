@@ -3,14 +3,16 @@ using System;
 using BlazorPersonalWebsite.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BlazorPersonalWebsite.EntityFramework.Migrations
 {
     [DbContext(typeof(WebsiteContext))]
-    partial class WebsiteContextModelSnapshot : ModelSnapshot
+    [Migration("20210506170657_addedImageRefs")]
+    partial class addedImageRefs
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -128,7 +130,6 @@ namespace BlazorPersonalWebsite.EntityFramework.Migrations
                         {
                             SoftwareProjectImageId = 1,
                             Description = "Agility skill calculator",
-                            ImageRef = "rs1",
                             ImageUrl = "images\\software-images\\rs-calculator\\1.png",
                             SoftwareProjectId = 1
                         },
@@ -136,7 +137,6 @@ namespace BlazorPersonalWebsite.EntityFramework.Migrations
                         {
                             SoftwareProjectImageId = 2,
                             Description = "Fishing skill calculator",
-                            ImageRef = "rs2",
                             ImageUrl = "images\\software-images\\rs-calculator\\2.png",
                             SoftwareProjectId = 1
                         },
@@ -144,7 +144,6 @@ namespace BlazorPersonalWebsite.EntityFramework.Migrations
                         {
                             SoftwareProjectImageId = 3,
                             Description = "Dropdown showing which skills are included",
-                            ImageRef = "rs3",
                             ImageUrl = "images\\software-images\\rs-calculator\\3.png",
                             SoftwareProjectId = 1
                         },
@@ -152,7 +151,6 @@ namespace BlazorPersonalWebsite.EntityFramework.Migrations
                         {
                             SoftwareProjectImageId = 4,
                             Description = "Dropdown showing skill subcategories",
-                            ImageRef = "rs4",
                             ImageUrl = "images\\software-images\\rs-calculator\\4.png",
                             SoftwareProjectId = 1
                         },
@@ -160,7 +158,6 @@ namespace BlazorPersonalWebsite.EntityFramework.Migrations
                         {
                             SoftwareProjectImageId = 5,
                             Description = "Ecommerce homepage",
-                            ImageRef = "ecom1",
                             ImageUrl = "images\\software-images\\ecommerce-site\\1.png",
                             SoftwareProjectId = 2
                         },
@@ -168,7 +165,6 @@ namespace BlazorPersonalWebsite.EntityFramework.Migrations
                         {
                             SoftwareProjectImageId = 6,
                             Description = "Ecommerce product page",
-                            ImageRef = "ecom2",
                             ImageUrl = "images\\software-images\\ecommerce-site\\2.png",
                             SoftwareProjectId = 2
                         },
@@ -176,7 +172,6 @@ namespace BlazorPersonalWebsite.EntityFramework.Migrations
                         {
                             SoftwareProjectImageId = 7,
                             Description = "Ecommerce basket page",
-                            ImageRef = "ecom3",
                             ImageUrl = "images\\software-images\\ecommerce-site\\3.png",
                             SoftwareProjectId = 2
                         },
@@ -184,7 +179,6 @@ namespace BlazorPersonalWebsite.EntityFramework.Migrations
                         {
                             SoftwareProjectImageId = 8,
                             Description = "Ecommerce admin page",
-                            ImageRef = "ecom4",
                             ImageUrl = "images\\software-images\\ecommerce-site\\4.png",
                             SoftwareProjectId = 2
                         },
@@ -192,7 +186,6 @@ namespace BlazorPersonalWebsite.EntityFramework.Migrations
                         {
                             SoftwareProjectImageId = 9,
                             Description = "Ecommerce admin page - Edit listing",
-                            ImageRef = "ecom5",
                             ImageUrl = "images\\software-images\\ecommerce-site\\5.png",
                             SoftwareProjectId = 2
                         },
@@ -200,7 +193,6 @@ namespace BlazorPersonalWebsite.EntityFramework.Migrations
                         {
                             SoftwareProjectImageId = 10,
                             Description = "Ecommerce contact us page",
-                            ImageRef = "ecom6",
                             ImageUrl = "images\\software-images\\ecommerce-site\\6.png",
                             SoftwareProjectId = 2
                         },
@@ -208,7 +200,6 @@ namespace BlazorPersonalWebsite.EntityFramework.Migrations
                         {
                             SoftwareProjectImageId = 11,
                             Description = "Main menu",
-                            ImageRef = "loyalty1",
                             ImageUrl = "images\\software-images\\loyalty-pro-app\\1.png",
                             SoftwareProjectId = 3
                         },
@@ -216,7 +207,6 @@ namespace BlazorPersonalWebsite.EntityFramework.Migrations
                         {
                             SoftwareProjectImageId = 12,
                             Description = "Balance overview page",
-                            ImageRef = "loyalty2",
                             ImageUrl = "images\\software-images\\loyalty-pro-app\\2.png",
                             SoftwareProjectId = 3
                         },
@@ -224,7 +214,6 @@ namespace BlazorPersonalWebsite.EntityFramework.Migrations
                         {
                             SoftwareProjectImageId = 13,
                             Description = "Personal details page",
-                            ImageRef = "loyalty3",
                             ImageUrl = "images\\software-images\\loyalty-pro-app\\3.png",
                             SoftwareProjectId = 3
                         },
@@ -232,7 +221,6 @@ namespace BlazorPersonalWebsite.EntityFramework.Migrations
                         {
                             SoftwareProjectImageId = 14,
                             Description = "Vouchers overview page",
-                            ImageRef = "loyalty4",
                             ImageUrl = "images\\software-images\\loyalty-pro-app\\4.png",
                             SoftwareProjectId = 3
                         },
@@ -240,7 +228,6 @@ namespace BlazorPersonalWebsite.EntityFramework.Migrations
                         {
                             SoftwareProjectImageId = 15,
                             Description = "Initial unlogged in page",
-                            ImageRef = "loyalty5",
                             ImageUrl = "images\\software-images\\loyalty-pro-app\\5.png",
                             SoftwareProjectId = 3
                         },
@@ -248,7 +235,6 @@ namespace BlazorPersonalWebsite.EntityFramework.Migrations
                         {
                             SoftwareProjectImageId = 16,
                             Description = "Manual log in page",
-                            ImageRef = "loyalty6",
                             ImageUrl = "images\\software-images\\loyalty-pro-app\\6.png",
                             SoftwareProjectId = 3
                         },
@@ -256,7 +242,6 @@ namespace BlazorPersonalWebsite.EntityFramework.Migrations
                         {
                             SoftwareProjectImageId = 17,
                             Description = "Display showing journeys between two staypoints",
-                            ImageRef = "gps1",
                             ImageUrl = "images\\software-images\\gps-logger\\1.png",
                             SoftwareProjectId = 4
                         },
@@ -264,7 +249,6 @@ namespace BlazorPersonalWebsite.EntityFramework.Migrations
                         {
                             SoftwareProjectImageId = 18,
                             Description = "Individual journey view",
-                            ImageRef = "gps2",
                             ImageUrl = "images\\software-images\\gps-logger\\2.png",
                             SoftwareProjectId = 4
                         },
@@ -272,7 +256,6 @@ namespace BlazorPersonalWebsite.EntityFramework.Migrations
                         {
                             SoftwareProjectImageId = 19,
                             Description = "Staypoint overview showing individual visits",
-                            ImageRef = "gps3",
                             ImageUrl = "images\\software-images\\gps-logger\\3.png",
                             SoftwareProjectId = 4
                         },
@@ -280,7 +263,6 @@ namespace BlazorPersonalWebsite.EntityFramework.Migrations
                         {
                             SoftwareProjectImageId = 20,
                             Description = "Staypoint shown on map",
-                            ImageRef = "gps4",
                             ImageUrl = "images\\software-images\\gps-logger\\4.png",
                             SoftwareProjectId = 4
                         },
@@ -288,7 +270,6 @@ namespace BlazorPersonalWebsite.EntityFramework.Migrations
                         {
                             SoftwareProjectImageId = 21,
                             Description = "Open side bar",
-                            ImageRef = "gps5",
                             ImageUrl = "images\\software-images\\gps-logger\\5.png",
                             SoftwareProjectId = 4
                         });

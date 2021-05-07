@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BlazorPersonalWebsite.RestApi.Models
+namespace BlazorPersonalWebsite.Models
 {
-    public class SoftwareProjectImage
+    public class SoftwareProjectImageUpdateModel
     {
-        public int SoftwareProjectImageId { get; set; }
+        public string ImageRef { get; set; }
 
         public string ImageUrl { get; set; }
 

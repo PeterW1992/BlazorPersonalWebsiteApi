@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BlazorPersonalWebsite.Models
+namespace BlazorPersonalWebsite.RestApi.Models
 {
     public class SoftwareProjectImage
     {
@@ -13,9 +13,5 @@ namespace BlazorPersonalWebsite.Models
         public string ImageUrl { get; set; }
 
         public string Description { get; set; }
-
-        public int SoftwareProjectId { get; set; }
-
-        public SoftwareProject SoftwareProject { get; set; }
     }
 }
