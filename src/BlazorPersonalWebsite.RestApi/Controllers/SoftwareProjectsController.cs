@@ -24,15 +24,16 @@ namespace BlazorPersonalWebsite.RestApi.Controllers
         }
 
         [HttpGet]
+        public async Task<IEnumerable<RestApi.Models.SoftwareProject>> Get()
+        {
+            var softwareProjects = await _repo.ListSoftwareProjectsAsync();
+            return _mapper.Map<List<Models.SoftwareProject>>(softwareProjects);
+        }
+
+        [HttpGet]
         [Route("{projectRef}")]
         public async Task<IEnumerable<RestApi.Models.SoftwareProject>> Get(string projectRef)
         {
-            if (string.IsNullOrEmpty(projectRef))
-            {
-                var softwareProjects = await _repo.ListSoftwareProjectsAsync();
-                return _mapper.Map<List<Models.SoftwareProject>>(softwareProjects);
-            }
-
             var softwareProject = await _repo.GetSoftwareProjectAsync(projectRef);
 
             if (softwareProject == null)
@@ -72,7 +73,7 @@ namespace BlazorPersonalWebsite.RestApi.Controllers
             if (softwareProject == null)
                 return NotFound();
             else
-                return _mapper.Map<List<Models.SoftwareProjectImage>>(softwareProject.Images) ;
+                return _mapper.Map<List<Models.SoftwareProjectImage>>(softwareProject.Images);
         }
 
         [HttpDelete]
