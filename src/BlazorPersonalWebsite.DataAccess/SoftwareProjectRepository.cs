@@ -59,15 +59,13 @@ namespace BlazorPersonalWebsite.DataAccess
 
             softwareProject.Id = existingProject.Id;
             softwareProject.ProjectRef = projectRef;
-            
-            softwareProject.Images.ForEach(img =>
-            {
-                img.SoftwareProjectImageId = softwareProject.Images.Where(upImg => img.ImageRef == upImg.ImageRef).First().SoftwareProjectImageId;
-            });
 
-            foreach (var image in existingProject.Images)
+            UpdateExistingImages(softwareProject, existingProject);
+            var imagesToDelete = ListImagesToBeDeleted(softwareProject, existingProject);
+
+            foreach(var image in imagesToDelete)
             {
-                var exists = updateModel.Images.Exists(img => img.ImageRef == image.ImageRef);
+                _dbContext.Entry(image).State = EntityState.Deleted;
             }
 
             this._dbContext.SoftwareProjects.Update(softwareProject);
@@ -87,6 +85,34 @@ namespace BlazorPersonalWebsite.DataAccess
             await this._dbContext.SaveChangesAsync();
 
             return await this.GetSoftwareProjectAsync(projectRef);
+        }
+
+        private void UpdateExistingImages(SoftwareProject updatedProject, SoftwareProject existingProject)
+        {
+            updatedProject.Images.ForEach(img =>
+            {
+                bool exists = existingProject.Images.Exists(upImg => img.ImageRef == upImg.ImageRef);
+
+                if (exists)
+                {
+                    img.SoftwareProjectImageId = existingProject.Images
+                                                            .Where(upImg => img.ImageRef == upImg.ImageRef)
+                                                            .First()
+                                                            .SoftwareProjectImageId;
+                    img.SoftwareProjectId = existingProject.Id;
+                }
+            });
+        }
+
+        private List<SoftwareProjectImage> ListImagesToBeDeleted(SoftwareProject updatedProject, SoftwareProject existingProject)
+        {
+            return existingProject.Images
+                .Where(img =>
+                {
+                    bool exists = updatedProject.Images.Exists(upImg => img.ImageRef == upImg.ImageRef);
+                    return !exists;
+                })
+                .ToList();
         }
     }
 }

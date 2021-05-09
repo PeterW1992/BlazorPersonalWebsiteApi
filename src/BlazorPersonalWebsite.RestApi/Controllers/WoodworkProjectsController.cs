@@ -23,23 +23,26 @@ namespace BlazorPersonalWebsite.RestApi.Controllers
         }
 
         [HttpGet]
+        [Route("{projectRef}")]
         public async Task<IEnumerable<RestApi.Models.WoodworkProject>> Get(string projectRef)
         {
-            if (string.IsNullOrEmpty(projectRef))
-            {
-                var WoodworkProjects = await _repo.ListWoodworkProjectsAsync();
-                return _mapper.Map<List<Models.WoodworkProject>>(WoodworkProjects);
-            }
-
             var project = await _repo.GetWoodworkProjectAsync(projectRef);
 
             if (project == null)
             {
                 return new List<RestApi.Models.WoodworkProject>();
-            } else
+            }
+            else
             {
                 return new List<RestApi.Models.WoodworkProject> { _mapper.Map<Models.WoodworkProject>(project) };
             }
+        }
+
+        [HttpGet]
+        public async Task<IEnumerable<RestApi.Models.WoodworkProject>> GetAllAsync()
+        {
+            var WoodworkProjects = await _repo.ListWoodworkProjectsAsync();
+            return _mapper.Map<List<Models.WoodworkProject>>(WoodworkProjects);
         }
 
         [HttpPost]

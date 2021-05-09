@@ -51,7 +51,10 @@ namespace BlazorPersonalWebsite.RestApi
                 .AddAutoMapper(typeof(SoftwareProjectProfile), typeof(WoodworkProjectProfile))
                 .AddCors(c =>
                 {
-                    c.AddPolicy(CorsPolicy, options => options.AllowAnyOrigin());
+                    c.AddPolicy(CorsPolicy, options => options
+                                                        .AllowAnyOrigin()
+                                                        .AllowAnyMethod()
+                                                        .AllowAnyHeader());
                 });
 
             services.AddControllers();
